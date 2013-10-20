@@ -237,9 +237,9 @@
                 // 32: space
                 registerKeyEvent([32], spaceHandler);
                 // 35: end
-                registerKeyEvent([35], impress().last());
+                registerKeyEvent([35], impress().last);
                 // 36: home
-                registerKeyEvent([36], impress().first());
+                registerKeyEvent([36], impress().first);
                 
                 // Cleanup
                 consoleWindow.onbeforeunload = function() {
