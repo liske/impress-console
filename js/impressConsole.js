@@ -43,6 +43,8 @@
     var allConsoles = {};
     
     var useAMPM = false;
+
+    var running = false;
     
     // Zero padding helper function:
     var zeroPad = function(i) {
@@ -104,6 +106,7 @@
                 }
 
                 consoleWindow.document.getElementById('status').innerHTML = '<span style="color: red">Moving</span>';
+		running = true;
             }
         };
     
@@ -152,6 +155,7 @@
         
         var timerReset = function () {
             consoleWindow.timerStart = new Date();
+	    running = false;
         };
         
         // Show a clock
@@ -173,10 +177,12 @@
             consoleWindow.document.getElementById('clock').firstChild.nodeValue = clockStr;
             
             // Timer
-            seconds = Math.floor((now - consoleWindow.timerStart) / 1000);
-            minutes = Math.floor(seconds / 60);
-            seconds = Math.floor(seconds % 60);
-            consoleWindow.document.getElementById('timer').firstChild.nodeValue = zeroPad(minutes) + 'm ' + zeroPad(seconds) + 's';
+	    if(running) {
+		seconds = Math.floor((now - consoleWindow.timerStart) / 1000);
+		minutes = Math.floor(seconds / 60);
+		seconds = Math.floor(seconds % 60);
+		consoleWindow.document.getElementById('timer').firstChild.nodeValue = zeroPad(minutes) + 'm ' + zeroPad(seconds) + 's';
+	    }
             
             if (!consoleWindow.initialized) {
                 // Nudge the slide windows after load, or they will scrolled wrong on Firefox.
