@@ -91,8 +91,8 @@
 
                 // Set the views                
                 var baseURL = document.URL.substring(0, document.URL.search('#/'));
-                var slideSrc = baseURL + '#' + document.querySelector('.active').id;
-                var preSrc = baseURL + '#' + nextStep().id;
+                var slideSrc = baseURL + '#/' + document.querySelector('.active').id;
+                var preSrc = baseURL + '#/' + nextStep().id;
                 var slideView = consoleWindow.document.getElementById('slideView');
                 // Setting them when they are already set causes glithes in Firefox, so we check first:
                 if (slideView.src !== slideSrc) {
@@ -102,7 +102,7 @@
                 if (preView.src !== preSrc) {
                     preView.src = preSrc;
                 }
-                
+
                 consoleWindow.document.getElementById('status').innerHTML = '<span style="color: red">Moving</span>';
             }
         };
@@ -125,8 +125,8 @@
                 
                 // Set the views
                 var baseURL = document.URL.substring(0, document.URL.search('#/'));
-                var slideSrc = baseURL + '#' + document.querySelector('.active').id;
-                var preSrc = baseURL + '#' + nextStep().id;
+                var slideSrc = baseURL + '#/' + document.querySelector('.active').id;
+                var preSrc = baseURL + '#/' + nextStep().id;
                 var slideView = consoleWindow.document.getElementById('slideView');
                 // Setting them when they are already set causes glithes in Firefox, so we check first:
                 if (slideView.src !== slideSrc) {
