@@ -232,10 +232,14 @@
                 // keyboard navigation handlers
                 // 33: pg up, 37: left, 38: up
                 registerKeyEvent([33, 37, 38], impress().prev);
-                // 34: pg down, 39: right, 40: down
-                registerKeyEvent([34, 39, 40], impress().next);
+                // 9: tab, 34: pg down, 39: right, 40: down
+                registerKeyEvent([9, 34, 39, 40], impress().next);
                 // 32: space
                 registerKeyEvent([32], spaceHandler);
+                // 35: end
+                registerKeyEvent([35], impress().last());
+                // 36: home
+                registerKeyEvent([36], impress().first());
                 
                 // Cleanup
                 consoleWindow.onbeforeunload = function() {
